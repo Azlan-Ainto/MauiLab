@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="MauiLab/MauiLab.csproj" />
+  <Project Path="DontLeMeExpire/DontLeMeExpire.csproj" />
+  <Project Path="MauiLab/MauiLab.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>
