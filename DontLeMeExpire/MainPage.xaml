@@ -150,7 +150,41 @@
                 </Grid>
                 
             </Border>
-            
+            <Label
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Margin ="0,8,0,0"
+                FontSize="24"
+                Text="Meine Lagerorte" />
+
+            <VerticalStackLayout
+                Padding="2"
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Spacing="8">
+
+                <BoxView BackgroundColor="LightGray" HeightRequest="50" />
+                <BoxView BackgroundColor="LightGray" HeightRequest="50" />
+                <BoxView BackgroundColor="LightGray" HeightRequest="50" />
+                
+
+            </VerticalStackLayout>
+            <Button
+                Grid.Row="4"
+                Grid.Column="0"
+                BackgroundColor="#3d6dcc"
+                BorderWidth="1"
+                Text="Eintrag hinzufügen" />
+            <Button
+                Grid.Row="4"
+                Grid.Column="1"
+                BackgroundColor="White"
+                BorderColor="#3d6dcc"
+                BorderWidth ="1"
+                Text ="Neuen Ort anlegen"
+                TextColor="#3d6dcc" />
+
+
         </Grid>
         
     </ScrollView>
