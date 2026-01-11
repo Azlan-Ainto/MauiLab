@@ -13,8 +13,7 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-
-    <ShellContent
+       <ShellContent
         Title="ItemPage"
         ContentTemplate="{DataTemplate views:ItemPage}"
         Route="ItemPage" />

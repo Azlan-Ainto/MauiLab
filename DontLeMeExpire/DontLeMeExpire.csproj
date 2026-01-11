@@ -63,15 +63,18 @@
 
 	<ItemGroup>
 	  <Folder Include="Item\" />
-	  <Folder Include="Models\" />
 	  <Folder Include="StorageLocations\" />
 	  <Folder Include="Settings\" />
-	  <Folder Include="ViewModels\" />
-	  <Folder Include="Services\" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\ItemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ItemsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
