@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DontLeMeExpire.MainPage">
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DontLeMeExpire.MainPage">
 
     <ScrollView>
 
@@ -151,13 +152,16 @@
                 
             </Border>
             <!---->
+            
             <Label
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
                 Margin ="0,8,0,0"
                 FontSize="24"
                 Text="Meine Lagerorte" />
-                <VerticalStackLayout
+
+            <!-- Platzhalter für Lagerorterte -->
+            <VerticalStackLayout
                     Padding="2"
                     Grid.Row="3"
                     Grid.ColumnSpan="2"
@@ -165,33 +169,34 @@
                     
                     <!-- <BoxView BackgroundColor="LightGray" HeightRequest="50" />
                         <BoxView BackgroundColor="LightGray" HeightRequest="50" />
-                        <BoxView BackgroundColor="LightGray" HeightRequest="50" />
-                    -->
-
-                <!-- Platzhalter für Lagerorterte -->
+                        <BoxView BackgroundColor="LightGray" HeightRequest="50" /> -->
+                    
+                    
+                 <!-- Gefrieerschrank-->
                 <Border 
-                BackgroundColor="White"
-                StrokeThickness="0">
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="White"
+                    StrokeThickness="0">
                     <Border.Shadow >
                         <Shadow
-                        Opacity="0.2"
-                        Radius="4"
-                        Offset="0,4" />
+                            Opacity="0.2"
+                            Radius="8"
+                            Offset="0,4" />
                     </Border.Shadow>
 
                     <Grid
-                    Padding="8"
-                    ColumnDefinitions="48, *, 24"
-                    ColumnSpacing="8"
-                    RowDefinitions="24,24">
+                        Padding="8"
+                        ColumnDefinitions="48, *, 24"
+                        ColumnSpacing="8"
+                        RowDefinitions="24,24">
                         <!-- Icon(Hellblauer Kreis) -->
                         <Border
-                        Grid.Row="0"
-                        Grid.RowSpan="2"
-                        Grid.Column="0"
-                        BackgroundColor="AliceBlue"
-                        StrokeShape="RoundRectangle 45"
-                        StrokeThickness="0">
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="0"
+                            BackgroundColor="AliceBlue"
+                            StrokeShape="RoundRectangle 45"
+                            StrokeThickness="0">
                             <Image Source="dotnet_bot.png"/>
 
                         </Border>
@@ -217,11 +222,120 @@
                         TextColor="LightGray"/>
 
                     </Grid>
+
                 </Border>
+
+                <!--- Kühlschrank-->
+                <Border
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="White"
+                    StrokeThickness="0">
+                    <Border.Shadow>
+                        <Shadow 
+                            Opacity="0.2" 
+                            Radius="4" 
+                            Offset="0,4" />
+
+                    </Border.Shadow>
+                    <Grid
+                        Padding="8"
+                        ColumnDefinitions="48,*,24"
+                        ColumnSpacing="8"
+                        RowDefinitions="24,24">
+                        <Border
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="0"
+                            BackgroundColor="AliceBlue"
+                            StrokeShape="RoundRectangle 45"
+                            StrokeThickness="0">
+                            <Image Source="dotnet_bot.png"/>
+                        </Border>
+                        
+                        <!-- Lagerortname -->
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            FontAttributes="Bold"
+                            Text="Kühlschrank" />
+                        <!-- Anzahl der Artikel im Lagerort -->
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="5 Einträge"
+                            TextColor="DarkGray" />
+
+                        <!-- spitzer Pfeil nach rechts (Guillemt 'chevron right') -->
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Grid.RowSpan="2"
+                            FontSize="36"
+                            HorizontalOptions="End"
+                            Text=">"
+                            TextColor="LightGray" />
+
+                    </Grid>
+                </Border>
+
+                <!-- Vorratsschrank-->
+
+                <Border
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="White"
+                    StrokeThickness="0">
+                    <Border.Shadow>
+                        <Shadow
+                            Opacity="0.2"
+                            Radius="8"
+                            Offset="0,4" />
+
+                    </Border.Shadow>
+                    
+                    <Grid
+                        Padding="8"
+                        ColumnDefinitions="48,*,24"
+                        ColumnSpacing="8"
+                        RowDefinitions="24,24">
+                        <!-- Icon (Hellblauer Kreis) -->
+                        <Border 
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.RowSpan="2"
+                            BackgroundColor="AliceBlue"
+                            StrokeShape="RoundRectangle 45"
+                            StrokeThickness="0">
+                            <Image Source="dotnet_bot.png" />
+
+                        </Border>
+                        <!-- Lagerortname -->
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            Text="Vorratsschrank" />
+                        <!-- Anzahl der Artikel im Lagerort -->
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="4 Einträge"
+                            TextColor="DarkGray" />
+                        <!-- spitzer Pfeil nach rechts (Guillemt 'chevron right') -->
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Grid.RowSpan="2"
+                            FontSize="36"
+                            HorizontalOptions="End"
+                            Text=">"
+                            TextColor="LightGray" />
+
+
+                    </Grid>
+                </Border>
+      
 
             </VerticalStackLayout>
            
-
 
             <Button
                 Grid.Row="4"
