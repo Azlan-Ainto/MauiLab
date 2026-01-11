@@ -1,41 +1,54 @@
-# MauiLab
+# Full-Stack Portfolio: .NET 10 Multi-Platform Apps
 
-## Multi-Platform Application Portfolio (.NET 10 / MAUI)
-Dieses Repository dient als Showcase für meine Expertise in der modernen Softwareentwicklung mit dem Microsoft Technology Stack. 
-Der Fokus liegt auf hochperformanten, plattformübergreifenden Anwendungen mit einer sauberen Architektur.
-## 🚀 Technologie-StackFramework: * .NET 10 (Multi-platform App UI - MAUI)
-## Sprache: 
-      C# 14+
-## IDE: 
-   Visual Studio 2022 (Enterprise/Professional)
-   
-## Datenzugriff: 
-  Entity Framework Core (EF Core)
-## Datenbank:  ### Microsoft SQL Server (T-SQL)
-## Querying:  ### LINQ (Language Integrated Query)
-🛠 Architektur & Features
-Die Anwendungen folgen dem MVVM-Muster (Model-View-ViewModel), um eine klare Trennung zwischen Geschäftslogik und Benutzeroberfläche zu gewährleisten.
-Kernkomponenten:Cross-Platform Support: Eine einzige Codebasis für Android, iOS, Windows (WinUI 3) und macOS (Mac Catalyst).
-Data Layer: 
-Implementierung von Repository-Patterns unter Verwendung von Entity Framework Core.
-Fluent Queries: 
-Einsatz von komplexen LINQ-Abfragen zur effizienten Datenmanipulation und -filterung.
-Modern UI: 
-Responsive Designs mit XAML und Styles, optimiert für Touch- und Desktop-Eingaben.
-Dependency Injection: 
-Konsequente Nutzung des integrierten .NET DI-Containers für testbaren Code.
-📱 ProjektübersichtProjektBeschreibungHighlights[Projektname A]Mobile ERP-AnwendungSQL Sync, Custom Controls[Projektname B]Inventory ManagementEF Core Migrations, Scanner API⚙️ Installation & SetupUm die Projekte lokal zu testen, wird folgende Umgebung benötigt:Visual Studio 2022 (Version 17.12 oder höher für .NET 10 Support).Workload: .NET Multi-platform App UI development.SQL Server Instance (LocalDB oder Express).
-Bash# 
-Repository klonen
-git clone https://github.com/DEIN-NUTZERNAME/REPOSTITORY-NAME.git
+Willkommen in meinem Repository! Hier präsentiere ich meine aktuellen Softwareprojekte. 
+Der Fokus liegt auf der Entwicklung moderner, plattformübergreifender Anwendungen mit dem neuesten Microsoft-Technologiestack.
 
-# In den Projektordner wechseln
-cd ProjektName
+---
 
-# NuGet-Pakete wiederherstellen
-dotnet restore
-💡 Warum .NET 10 & MAUI?
-Durch die Wahl von .NET 10 zeige ich meine Bereitschaft, mit den neuesten LTS (Long Term Support) Versionen zu arbeiten. 
-Die Nutzung von MAUI demonstriert, dass ich effiziente Lösungen für heterogene Gerätelandschaften entwickeln kann, ohne die Performance nativer Anwendungen zu opfern.
-Kontakt
-Falls Sie Fragen zu meinem Code oder meinen Implementierungsansätzen haben, kontaktieren Sie mich gerne über GitHub oder [Dein LinkedIn Profil].
+## 🛠 Tech-Stack & Expertise
+
+Ich nutze die neuesten Features von **.NET 10**, um performante Apps für Android, iOS und Windows zu entwickeln.
+
+* **Framework:** .NET 10 MAUI (Multi-platform App UI)
+* **Sprache:** C# (Modern Features & LINQ)
+* **IDE:** Visual Studio 2022
+* **Datenbank:** Microsoft SQL Server
+* **ORM:** Entity Framework Core (Code First / Migrations)
+* **Architektur:** MVVM (Model-View-ViewModel), Dependency Injection
+
+---
+
+## 📱 Projekt-Showcase
+
+### [Name deines Hauptprojekts]
+Dies ist eine Cross-Platform Anwendung, die zeigt, wie komplexe Datenstrukturen effizient zwischen einer SQL-Datenbank und einer mobilen/Desktop-Oberfläche synchronisiert werden.
+
+#### Key Features:
+* **Multi-Platform:** Konsistente UI unter Android, Windows und iOS.
+* **EF Core Integration:** Effiziente Datenhaltung und Abfragen mittels LINQ.
+* **Modern UI:** Optimiert für verschiedene Bildschirmgrößen.
+
+> [!TIP]
+> **Video-Demo:** Hier kannst du einen Einblick in die App im Smartphone-Format sehen:
+> 
+> [![App Demo Video](https://img.youtube.com/vi/DEINE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=DEINE_VIDEO_ID)
+
+---
+
+## 🏗 Architektur-Ansatz
+
+In meinen Projekten lege ich großen Wert auf sauberen Code und Wartbarkeit:
+
+1.  **Separation of Concerns:** Strenge Trennung durch das MVVM-Muster.
+2.  **Performance:** Nutzung von asynchroner Programmierung (`async/await`) und optimierten LINQ-Queries.
+3.  **Data Safety:** Typsichere Datenbankzugriffe über Entity Framework Core.
+
+---
+
+## 🚀 Installation für Reviewer
+
+Um das Projekt lokal in **Visual Studio 2022** zu untersuchen:
+
+1. Repository klonen:
+   ```bash
+   git clone [https://github.com/DEIN_USER/DEIN_PROJEKT.git](https://github.com/DEIN_USER/DEIN_PROJEKT.git)
