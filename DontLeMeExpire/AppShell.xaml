@@ -4,11 +4,20 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DontLeMeExpire"
+    xmlns:views ="clr-namespace:DontLeMeExpire.Views"
+    Shell.FlyoutBehavior="Flyout"
     Title="DontLeMeExpire">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+
+    <ShellContent
+        Title="ItemPage"
+        ContentTemplate="{DataTemplate views:ItemPage}"
+        Route="ItemPage" />
+
 
 </Shell>
