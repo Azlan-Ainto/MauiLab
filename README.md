@@ -3,8 +3,7 @@
 ## Multi-Platform Application Portfolio (.NET 10 / MAUI)
 Dieses Repository dient als Showcase für meine Expertise in der modernen Softwareentwicklung mit dem Microsoft Technology Stack. 
 Der Fokus liegt auf hochperformanten, plattformübergreifenden Anwendungen mit einer sauberen Architektur.
-## 🚀 Technologie-StackFramework: 
-      .NET 10 (Multi-platform App UI - MAUI)
+## 🚀 Technologie-StackFramework: * .NET 10 (Multi-platform App UI - MAUI)
 ## Sprache: 
       C# 14+
 ## IDE: 
