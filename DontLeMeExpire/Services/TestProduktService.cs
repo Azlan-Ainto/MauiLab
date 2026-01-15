@@ -30,7 +30,7 @@ namespace DontLeMeExpire.Services
         /// <param name="id"></param>
         /// <returns>gibt ein Objekt vom Produkt zurück</returns>
 
-        public Task<Produkt?> ProduktLaden(string id)
+        public Task<Produkt?> LadeProduktNachId(string id)
         {
             Produkt produkt = _produkte.SingleOrDefault(p => p.Id == id);
 
