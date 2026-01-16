@@ -5,16 +5,16 @@ using System.Text;
 
 namespace DontLeMeExpire.Services
 {
-    public class TestAufbewahrungsort
+    public class LagerService : ILagerService
     {
-        private readonly TestProduktService _produktService;
+        private readonly ProduktService _produktService;
         private readonly List<Aufbewahrungsort> _aufbewahrungsorte;
 
 
-        public TestAufbewahrungsort()
+        public LagerService()
         {
-            _produktService = new TestProduktService();
-            _aufbewahrungsorte = [.. TestDaten.Orte];
+            _produktService = new ProduktService();
+            _aufbewahrungsorte = [.. PseudoDaten.Orte];
 
         }
 
@@ -82,11 +82,17 @@ namespace DontLeMeExpire.Services
             // wenn die Id leer oder null ist oder 
             // der Ort nicht in der Liste vorhanden ist, 
 
-            if(!IstleerOderNull && vorhandenerOrt )
+
 
 
             return Task.CompletedTask;
 
+        }
+
+        public Task LoescheAlleAufbewahrungsorte()
+        {
+            _aufbewahrungsorte.Clear();
+            return Task.CompletedTask;
         }
     }
 }

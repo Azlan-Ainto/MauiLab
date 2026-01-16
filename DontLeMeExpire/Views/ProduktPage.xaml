@@ -2,8 +2,11 @@
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="DontLeMeExpire.Views.ItemPage"
-    Title="ItemPage">
+    xmlns:vm="clr-namespace:DontLeMeExpire.ViewModels"
+       x:Class="DontLeMeExpire.Views.ProduktPage"
+    x:DataType="vm:ProduktViewModel"
+    HideSoftInputOnTapped="True"
+    Title="Produkseite">
 
     <ScrollView>
         <Grid 
@@ -39,18 +42,13 @@
                 Spacing="8">
                 
                 <Label Text="Produktname" />
-                <Entry  />
+                <Entry Text="{Binding Name}"  />
 
                 <Label Text="Lagerort" Margin="0,8,0,0" />
-                <Picker>
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}" >
-                            <x:String>Gefrierschrank</x:String>
-                            <x:String>Kühlschrank</x:String>
-                            <x:String>Vorratsschrank</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                <Picker  
+                    ItemDisplayBinding="{Binding Name}" 
+                    ItemsSource="{Binding Aufbewahrungsorte}" 
+                    SelectedItem="{Binding Aufbewahrungsort}" />
 
                 <Label Text="Verfallsdatum" Margin="0,8,0,0" />
                 <DatePicker />

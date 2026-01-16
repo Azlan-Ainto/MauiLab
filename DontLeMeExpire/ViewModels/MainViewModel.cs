@@ -7,13 +7,19 @@ namespace DontLeMeExpire.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly TestProduktService _testProduktService = new();
+        private readonly IProduktService _produktService;
 
         private int _AnzahlProdukte;
         private int _AnzahlBaldAbgelaufenenProdukten;
         private int _AnzahlHeuteAbgelaufenenProdukten;
         private int _AnzahlAbgelaufenenProdukten;
 
+
+
+        public MainViewModel(IProduktService produktService)
+        {
+            _produktService = produktService;
+        }
 
         public int AnzahlProdukte
         {
@@ -40,13 +46,13 @@ namespace DontLeMeExpire.ViewModels
 
         public async Task LadeProduktStatistiken()
         {
-            AnzahlProdukte = (await _testProduktService.LadeProduktliste()).Count();
+            AnzahlProdukte = (await _produktService.LadeProduktliste()).Count();
 
-            AnzahlBaldAbgelaufenenProdukten =(await _testProduktService.LadeProdukteBaldAblaufen()).Count();
+            AnzahlBaldAbgelaufenenProdukten =(await _produktService.LadeProdukteBaldAblaufen()).Count();
 
-            AnzahlHeuteAbgelaufenenProdukten = (await _testProduktService.LadeProdukteHeuteAblaufen()).Count();
+            AnzahlHeuteAbgelaufenenProdukten = (await _produktService.LadeProdukteHeuteAblaufen()).Count();
 
-            AnzahlAbgelaufenenProdukten = (await _testProduktService.LadeAbgelaufeneProdukte()).Count();
+            AnzahlAbgelaufenenProdukten = (await _produktService.LadeAbgelaufeneProdukte()).Count();
         }
 
 

@@ -2,7 +2,11 @@
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="DontLeMeExpire.MainPage">
+    xmlns:viewModels="clr-namespace:DontLeMeExpire.ViewModels" 
+    xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    Padding="16"
+    x:Class="DontLeMeExpire.MainPage"
+    x:DataType="viewModels:MainViewModel">
 
     <ScrollView>
 
@@ -30,10 +34,10 @@
                     <Label 
                         Grid.Row="0" 
                         Grid.Column="1" 
+                        d:Text="{Binding AnzahlProdukte}"
                         FontAttributes="Bold" 
                         FontSize="Medium" 
-                        HorizontalOptions="End" 
-                        Text="12" />
+                        HorizontalOptions="End"  />
                     <Label 
                         Grid.Row="1" 
                         Grid.Column="0" 
@@ -66,7 +70,7 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="1"
-                        Text="3"
+                        Text="{Binding AnzahlBaldAbgelaufenenProdukten}"
                         FontAttributes="Bold"
                         FontSize="Medium"
                         HorizontalOptions="End"
@@ -101,7 +105,7 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="1"
-                        Text="1"
+                        Text="{Binding AnzahlHeuteAbgelaufenenProdukten}"
                         FontAttributes="Bold"
                         FontSize="Medium"
                         HorizontalOptions="End"
@@ -135,7 +139,7 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="1"
-                        Text="12"
+                        Text="{Binding AnzahlAbgelaufenenProdukten}"
                         FontSize="Medium"
                         FontAttributes="Bold"
                         HorizontalOptions="End"
@@ -335,14 +339,16 @@
       
 
             </VerticalStackLayout>
-           
 
+            <!--  Eintrag hinzufügen  -->
             <Button
                 Grid.Row="4"
                 Grid.Column="0"
                 BackgroundColor="#3d6dcc"
                 BorderWidth="1"
-                Text="Eintrag hinzufügen" />
+                Text="Eintrag hinzufügen"/>
+            
+            <!-- Neuer Ort anlegen -->
             <Button
                 Grid.Row="4"
                 Grid.Column="1"

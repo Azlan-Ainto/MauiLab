@@ -5,14 +5,14 @@ using System.Text;
 
 namespace DontLeMeExpire.Services
 {
-    class TestProduktService
+    class ProduktService : IProduktService
     {
         private readonly List<Produkt> _produkte;
 
 
-        public TestProduktService()
+        public ProduktService()
         {
-            _produkte = [.. TestDaten.Produkte];
+            _produkte = [.. PseudoDaten.Produkte];
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace DontLeMeExpire.Services
 
         // lädt alle Produkte, die bald ablaufen
 
-        public Task<IEnumerable<Produkt>> LadeProdukteBaldAblaufen(int tage=5)
+        public Task<IEnumerable<Produkt>> LadeProdukteBaldAblaufen(int tage = 5)
         {
 
             var verfallsdatumZukunft = DateTime.Today.AddDays(tage);
@@ -105,7 +105,7 @@ namespace DontLeMeExpire.Services
         public Task SpeichereProdukt(Produkt produkt)
         {
             // prüfen, ob das Objekt prdukt erzeugt wurde und nicht null ist
-            if (produkt is null) 
+            if (produkt is null)
                 throw new ArgumentNullException(nameof(produkt));
 
             //Prüfen, ob das Produkt eine Id hat oder noch keine Zuweisung hat
@@ -124,12 +124,13 @@ namespace DontLeMeExpire.Services
                     produkt.Id = Guid.NewGuid().ToString();
                 }
                 _produkte.Add(produkt);
-            }else
+            }
+            else
             {
                 Produkt produktAktualisieren = _produkte.Single(p => p.Id == produkt.Id);
                 // Prdodukt aktualisieren
-                produktAktualisieren.Produktname = produkt.Produktname; 
-                produktAktualisieren.Verfallsdatum = produkt.Verfallsdatum; 
+                produktAktualisieren.Produktname = produkt.Produktname;
+                produktAktualisieren.Verfallsdatum = produkt.Verfallsdatum;
                 produktAktualisieren.Aufbewahrungsort = produkt.Aufbewahrungsort;
                 produktAktualisieren.Foto = produkt.Foto;
             }
@@ -140,7 +141,7 @@ namespace DontLeMeExpire.Services
         {
             //  prüfen, ob das produkt existiert
             bool produktEnthalten = _produkte.Any(p => p.Id == produkt.Id);
-            
+
             // prüfen, ob das Produkt eine Id hat
             bool hatId = !string.IsNullOrEmpty(produkt.Id);
 

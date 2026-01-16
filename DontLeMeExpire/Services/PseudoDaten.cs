@@ -5,7 +5,7 @@ using DontLeMeExpire.Models;
 
 namespace DontLeMeExpire.Services
 {
-    public class TestDaten
+    public class PseudoDaten
     {
         // Ersetze alle Vorkommen von "LagerID" durch "AufbewahrungsortId" in den Aufbewahrungsort-Objekten
         public static List<Aufbewahrungsort> Orte { get; } = [

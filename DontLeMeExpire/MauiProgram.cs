@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using DontLeMeExpire.Services;
+using DontLeMeExpire.ViewModels;
+using DontLeMeExpire.Views;
 
 namespace DontLeMeExpire
 {
@@ -18,6 +21,12 @@ namespace DontLeMeExpire
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<ILagerService, LagerService>();
+            builder.Services.AddSingleton<IProduktService, ProduktService>();
+            builder.Services.AddTransient<MainViewModel>();
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<ProduktViewModel>();
+            builder.Services.AddTransient<ProduktPage>();
 
             return builder.Build();
         }
