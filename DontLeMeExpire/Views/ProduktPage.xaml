@@ -4,144 +4,142 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:DontLeMeExpire.ViewModels"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-      x:Class="DontLeMeExpire.Views.ProduktPage"
+    x:Class="DontLeMeExpire.Views.ProduktPage"
     x:DataType="vm:ProduktViewModel"
     HideSoftInputOnTapped="True"
-    Title="Produkseite">
-    
+    Title="Produktseite">
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <toolkit:IsListNotNullOrEmptyConverter x:Key="IsListNotNullOrEmptyConverter" />
-            <toolkit:ListToStringConverter x:Key="IsListNotNullOrEmptyConverter" Separator="," />
+            <toolkit:ListToStringConverter x:Key="ListToStringConverter" Separator=", " />
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ScrollView>
-        <Grid 
-            RowDefinitions="300, auto">
-            
-            <!-- Dummy Produktbild anzeigen -->
-            <BoxView 
-                BackgroundColor="AliceBlue" 
-                HeightRequest="300" />
-            <Button
-                Margin="16"
-                HorizontalOptions="End"
-                Text="Bild löschen"
-                VerticalOptions="Start" />
-            <FlexLayout
-                AlignItems="Center"
-                Direction="Column"
-                JustifyContent="Center">
-                
-                <Image                    
-                    Source="dotnet_bot.png"
-                    HeightRequest="48"
-                    WidthRequest="48" />
-                
-                <Label Text="Tippe hier, um ein Bild hinzuzufügen" />
+        <Grid RowDefinitions="300, auto, auto">
 
-            </FlexLayout>
+            <!-- Produktbild -->
+            <Grid>
+                <BoxView BackgroundColor="AliceBlue" />
+                <Button
+                    Margin="16"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    Text="Bild löschen" />
+
+                <FlexLayout
+                    AlignItems="Center"
+                    Direction="Column"
+                    JustifyContent="Center">
+
+                    <Image 
+                        Source="dotnet_bot.png"
+                        HeightRequest="48"
+                        WidthRequest="48" />
+
+                    <Label Text="Tippe hier, um ein Bild hinzuzufügen" />
+                </FlexLayout>
+            </Grid>
+
+            <!-- Fehlerbereich -->
             <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="8">
-                <Border BackgroundColor="#ffb0b0"
-                        IsVisible="{Binding HasErrors}"
-                        Stroke="#b81c1c"
-                        StrokeShape="RondRechtangle 8"
-                        StrokeThickness="0">
+                <Border 
+                    BackgroundColor="#ffb0b0"
+                    IsVisible="{Binding HasErrors}"
+                    Stroke="#b81c1c"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8">
+
                     <Grid
                         ColumnDefinitions="4, auto, *"
+                        RowDefinitions="auto, auto, auto"
                         ColumnSpacing="8"
-                        RowDefinitions="auto,auto,auto"
                         RowSpacing="8">
-                        <BoxView
-                            Grid.Row="0" 
+
+                        <BoxView 
+                            Grid.Row="0"
                             Grid.ColumnSpan="3"
-                            Grid.Column="0" 
                             BackgroundColor="#b81c1c" />
+
                         <Label 
-                            Grid.Column="1" 
+                            Grid.Column="1"
                             FontSize="24"
                             VerticalOptions="End"
                             Text="!" />
+
                         <Label 
-                               Grid.Row="0" 
-                               Grid.Column="2" 
-                               Margin="0,8,0,0"
-                               Text="Fehler!" />
-                        <Label
+                            Grid.Column="2"
+                            Margin="0,8,0,0"
+                            Text="Fehler!" />
+
+                        <Label 
                             Grid.Row="1"
                             Grid.Column="2"
                             Text="Es sind einige Fehler aufgetreten" />
 
                         <VerticalStackLayout 
-                            Grid.Row="2" 
-                            Grid.Column="2" 
-                            Margin="8" 
-                            BindableLayout.ItemsSource="{Binding ErrorMessages}" 
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="8"
+                            BindableLayout.ItemsSource="{Binding ErrorMessages}"
                             Spacing="4">
 
                             <BindableLayout.ItemTemplate>
-
                                 <DataTemplate>
                                     <HorizontalStackLayout>
-                                        <Label Margin="0,0,8,0" Text="&#x2022;" />
+                                        <Label Margin="0,0,8,0" Text="•" />
                                         <Label Text="{Binding .}" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>
-
                             </BindableLayout.ItemTemplate>
 
                         </VerticalStackLayout>
 
                     </Grid>
-                    
                 </Border>
-                
             </VerticalStackLayout>
 
-            <!-- Eingabefelder für Produktinformationen -->
-            <VerticalStackLayout
-                Grid.Row="1"
-                Padding="16"
-                Spacing="8">
-                
+            <!-- Eingabefelder -->
+            <VerticalStackLayout Grid.Row="2" Padding="16" Spacing="12">
+
+                <!-- Produktname -->
                 <Label Text="Produktname" />
                 <Label 
-                    FontSize="12" 
-                    IsVisible="{Binding PropertyErrorMessages[Name], 
-                                Converter={StaticResource IsListNotNullOrEmptyConverter}, 
-                                FallbackValue=False}"
-                    
-                    Text="{Binding PropertyErrorMessages[Name], 
-                                    Converter={StaticResource ListToStringConverter}}" 
-                                    TextColor="Red" />
-                
-                <Entry Text="{Binding Name}"  />
+                    FontSize="12"
+                    TextColor="Red"
+                    IsVisible="{Binding PropertyErrorMessages[Name], Converter={StaticResource IsListNotNullOrEmptyConverter}}"
+                    Text="{Binding PropertyErrorMessages[Name], Converter={StaticResource ListToStringConverter}}" />
+                <Entry Text="{Binding Name}" />
 
-                <Label Text="Lagerort" Margin="0,8,0,0" />
+                <!-- Lagerort -->
+                <Label Text="Lagerort" />
                 <Picker  
-                    ItemDisplayBinding="{Binding Name}" 
-                    ItemsSource="{Binding Aufbewahrungsorte}" 
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding Aufbewahrungsorte}"
                     SelectedItem="{Binding Aufbewahrungsort}" />
 
-                <Label Text="Verfallsdatum" Margin="0,8,0,0" />
-                <DatePicker />
+                <!-- Verfallsdatum -->
+                <Label Text="Verfallsdatum" />
+                <DatePicker Date="{Binding Verfallsdatum}" />
 
-                <Label Text="Menge" Margin="0,8,0,0" />
-                
+                <!-- Menge -->
+                <Label Text="Menge" />
                 <Label 
-                    FontSize="12" 
-                    
-                    IsVisible="{Binding PropertyErrorMessages[Menge],Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
-                    
-                    Text="{Binding PropertyErrorMessages[Menge],Converter={StaticResource ListToStringConverter}}"  TextColor="Red" />
-                <Entry Keyboard="Numeric" Margin="0,8,0,0" />
-                
-                <Button Text="Speichern" Margin="0,8,0,0" />
+                    FontSize="12"
+                    TextColor="Red"
+                    IsVisible="{Binding PropertyErrorMessages[Menge], Converter={StaticResource IsListNotNullOrEmptyConverter}}"
+                    Text="{Binding PropertyErrorMessages[Menge], Converter={StaticResource ListToStringConverter}}" />
+                <Entry 
+                    Keyboard="Numeric"
+                    Text="{Binding Menge}" />
+
+                <!-- Speichern -->
+                <Button Text="Speichern" Command="{Binding SpeichernCommand}" />
 
             </VerticalStackLayout>
 
         </Grid>
     </ScrollView>
-    
+
 </ContentPage>
