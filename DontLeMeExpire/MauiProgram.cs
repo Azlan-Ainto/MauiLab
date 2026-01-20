@@ -2,6 +2,8 @@
 using DontLeMeExpire.Services;
 using DontLeMeExpire.ViewModels;
 using DontLeMeExpire.Views;
+using CommunityToolkit.Maui;
+
 
 namespace DontLeMeExpire
 {
@@ -10,8 +12,7 @@ namespace DontLeMeExpire
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
+            builder.UseMauiApp<App>().UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -23,10 +24,12 @@ namespace DontLeMeExpire
 #endif
             builder.Services.AddSingleton<ILagerService, LagerService>();
             builder.Services.AddSingleton<IProduktService, ProduktService>();
+
             builder.Services.AddTransient<MainViewModel>();
             builder.Services.AddTransient<MainPage>();
+
             builder.Services.AddTransient<ProduktViewModel>();
-            builder.Services.AddTransient<ProduktPage>();
+           builder.Services.AddTransient<ProduktPage>();
 
             return builder.Build();
         }

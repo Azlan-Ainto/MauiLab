@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:DontLeMeExpire.ViewModels" 
     xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+
     Padding="16"
     x:Class="DontLeMeExpire.MainPage"
     x:DataType="viewModels:MainViewModel">

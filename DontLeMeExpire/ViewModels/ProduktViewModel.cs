@@ -3,11 +3,12 @@ using DontLeMeExpire.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DontLeMeExpire.ViewModels
 {
-    public class ProduktViewModel : ViewModelBase
+    public class ProduktViewModel : ValidationViewModelBase
     {
         private string _name = string.Empty;
         private DateTime _verfallsdatum;
@@ -23,11 +24,17 @@ namespace DontLeMeExpire.ViewModels
 
         public ProduktViewModel(ILagerService lagerService, IProduktService produktService)
         {
-            SpeichereCommand = new Command(async () => await Speichere(), KannSpeichern);
-            _lagerService = lagerService;
-            _produktService = produktService;            
-        }     
+            // SpeichereCommand = new Command(async () => await Speichere(), KannSpeichern);
 
+            SpeichereCommand = new Command(async () => await Speichere());
+
+            _lagerService = lagerService;
+
+            _produktService = produktService;            
+        }
+
+        [Required]
+        [Length(1,150)]
         public string Name
         {
             get => _name;
@@ -45,6 +52,9 @@ namespace DontLeMeExpire.ViewModels
             get => _aufbewahrungsort;
             set => SetProperty(ref _aufbewahrungsort, value);
         }
+
+        [Required]
+        [Length(1, 10000)]
         public decimal Menge
         {
             get => _menge;
@@ -73,11 +83,15 @@ namespace DontLeMeExpire.ViewModels
 
         private bool KannSpeichern()
         {
-            return !string.IsNullOrEmpty(Name) && Menge > 0;
+            return Validate();
         }
 
         private async Task Speichere()
         {
+            if(!Validate())
+                return;
+            
+
             var produkt = new Produkt
             {
                 Id = Guid.NewGuid().ToString(),

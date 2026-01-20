@@ -3,10 +3,18 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:DontLeMeExpire.ViewModels"
-       x:Class="DontLeMeExpire.Views.ProduktPage"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+      x:Class="DontLeMeExpire.Views.ProduktPage"
     x:DataType="vm:ProduktViewModel"
     HideSoftInputOnTapped="True"
     Title="Produkseite">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:IsListNotNullOrEmptyConverter x:Key="IsListNotNullOrEmptyConverter" />
+            <toolkit:ListToStringConverter x:Key="IsListNotNullOrEmptyConverter" Separator="," />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
         <Grid 
@@ -34,6 +42,62 @@
                 <Label Text="Tippe hier, um ein Bild hinzuzufügen" />
 
             </FlexLayout>
+            <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="8">
+                <Border BackgroundColor="#ffb0b0"
+                        IsVisible="{Binding HasErrors}"
+                        Stroke="#b81c1c"
+                        StrokeShape="RondRechtangle 8"
+                        StrokeThickness="0">
+                    <Grid
+                        ColumnDefinitions="4, auto, *"
+                        ColumnSpacing="8"
+                        RowDefinitions="auto,auto,auto"
+                        RowSpacing="8">
+                        <BoxView
+                            Grid.Row="0" 
+                            Grid.ColumnSpan="3"
+                            Grid.Column="0" 
+                            BackgroundColor="#b81c1c" />
+                        <Label 
+                            Grid.Column="1" 
+                            FontSize="24"
+                            VerticalOptions="End"
+                            Text="!" />
+                        <Label 
+                               Grid.Row="0" 
+                               Grid.Column="2" 
+                               Margin="0,8,0,0"
+                               Text="Fehler!" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Text="Es sind einige Fehler aufgetreten" />
+
+                        <VerticalStackLayout 
+                            Grid.Row="2" 
+                            Grid.Column="2" 
+                            Margin="8" 
+                            BindableLayout.ItemsSource="{Binding ErrorMessages}" 
+                            Spacing="4">
+
+                            <BindableLayout.ItemTemplate>
+
+                                <DataTemplate>
+                                    <HorizontalStackLayout>
+                                        <Label Margin="0,0,8,0" Text="&#x2022;" />
+                                        <Label Text="{Binding .}" />
+                                    </HorizontalStackLayout>
+                                </DataTemplate>
+
+                            </BindableLayout.ItemTemplate>
+
+                        </VerticalStackLayout>
+
+                    </Grid>
+                    
+                </Border>
+                
+            </VerticalStackLayout>
 
             <!-- Eingabefelder für Produktinformationen -->
             <VerticalStackLayout
@@ -42,6 +106,16 @@
                 Spacing="8">
                 
                 <Label Text="Produktname" />
+                <Label 
+                    FontSize="12" 
+                    IsVisible="{Binding PropertyErrorMessages[Name], 
+                                Converter={StaticResource IsListNotNullOrEmptyConverter}, 
+                                FallbackValue=False}"
+                    
+                    Text="{Binding PropertyErrorMessages[Name], 
+                                    Converter={StaticResource ListToStringConverter}}" 
+                                    TextColor="Red" />
+                
                 <Entry Text="{Binding Name}"  />
 
                 <Label Text="Lagerort" Margin="0,8,0,0" />
@@ -54,6 +128,13 @@
                 <DatePicker />
 
                 <Label Text="Menge" Margin="0,8,0,0" />
+                
+                <Label 
+                    FontSize="12" 
+                    
+                    IsVisible="{Binding PropertyErrorMessages[Menge],Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
+                    
+                    Text="{Binding PropertyErrorMessages[Menge],Converter={StaticResource ListToStringConverter}}"  TextColor="Red" />
                 <Entry Keyboard="Numeric" Margin="0,8,0,0" />
                 
                 <Button Text="Speichern" Margin="0,8,0,0" />
