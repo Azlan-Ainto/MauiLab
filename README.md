@@ -20,7 +20,7 @@ Ich nutze die neuesten Features von **.NET 10**, um performante Apps für Androi
 
 ## 📱 Projekt-Showcase
 
-### [Name deines Hauptprojekts]
+### Don't let me expire
 Dies ist eine Cross-Platform Anwendung, die zeigt, wie komplexe Datenstrukturen effizient zwischen einer SQL-Datenbank und einer mobilen/Desktop-Oberfläche synchronisiert werden.
 
 #### Key Features:
