@@ -28,13 +28,6 @@ Dies ist eine Cross-Platform Anwendung, die zeigt, wie komplexe Datenstrukturen 
 * **EF Core Integration:** Effiziente Datenhaltung und Abfragen mittels LINQ.
 * **Modern UI:** Optimiert für verschiedene Bildschirmgrößen.
 
-> [!TIP]
-> **Video-Demo:** Hier kannst du einen Einblick in die App im Smartphone-Format sehen:
-> 
-> [![App Demo Video](https://img.youtube.com/vi/DEINE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=DEINE_VIDEO_ID)
-
----
-
 ## 🏗 Architektur-Ansatz
 
 In meinen Projekten lege ich großen Wert auf sauberen Code und Wartbarkeit:
@@ -43,7 +36,6 @@ In meinen Projekten lege ich großen Wert auf sauberen Code und Wartbarkeit:
 2.  **Performance:** Nutzung von asynchroner Programmierung (`async/await`) und optimierten LINQ-Queries.
 3.  **Data Safety:** Typsichere Datenbankzugriffe über Entity Framework Core.
 
----
 
 ## 🚀 Installation für Reviewer
 
@@ -51,4 +43,4 @@ Um das Projekt lokal in **Visual Studio 2022** zu untersuchen:
 
 1. Repository klonen:
    ```bash
-   git clone [https://github.com/DEIN_USER/DEIN_PROJEKT.git](https://github.com/DEIN_USER/DEIN_PROJEKT.git)
+   git clone https://github.com/Azlan-Ainto/MauiLab.git
