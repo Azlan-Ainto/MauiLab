@@ -2,23 +2,34 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 
 namespace DontLeMeExpire.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly IProduktService _produktService;
-
         private int _AnzahlProdukte;
         private int _AnzahlBaldAbgelaufenenProdukten;
         private int _AnzahlHeuteAbgelaufenenProdukten;
         private int _AnzahlAbgelaufenenProdukten;
 
+        private readonly INavigationService _navigationService;
+        private readonly IProduktService _produktService;
 
-
-        public MainViewModel(IProduktService produktService)
+        public MainViewModel(INavigationService navigationService,IProduktService produktService)
         {
+            
+            _navigationService = navigationService;
+
             _produktService = produktService;
+            NavigiereZuHinzufuegenProduktCommand = new Command(async () => await NavigiereZuHinzufuegenProduktAsync());
+        }
+        public ICommand NavigiereZuHinzufuegenProduktCommand { get; }
+
+
+        private async Task NavigiereZuHinzufuegenProduktAsync()
+        {
+            await _navigationService.GoToAsync(nameof(Views.ProduktPage));
         }
 
         public int AnzahlProdukte

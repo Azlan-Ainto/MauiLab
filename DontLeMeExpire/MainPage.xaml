@@ -387,7 +387,8 @@
                 Grid.Column="0"
                 BackgroundColor="#3d6dcc"
                 BorderWidth="1"
-                Text="Eintrag hinzufügen"/>
+                Text="Eintrag hinzufügen"
+                Command="{Binding NavigiereZuHinzufuegenProduktCommand}"/>
             
             <!-- Neuer Ort anlegen -->
             <Button

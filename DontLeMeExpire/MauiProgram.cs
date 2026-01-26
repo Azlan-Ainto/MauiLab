@@ -21,7 +21,9 @@ namespace DontLeMeExpire
 
 #if DEBUG
     		builder.Logging.AddDebug();
+
 #endif
+            builder.Services.AddSingleton<INavigationService, NavigationService>();
             builder.Services.AddSingleton<ILagerService, LagerService>();
             builder.Services.AddSingleton<IProduktService, ProduktService>();
 
