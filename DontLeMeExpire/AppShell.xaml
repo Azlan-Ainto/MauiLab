@@ -7,6 +7,22 @@
     xmlns:views ="clr-namespace:DontLeMeExpire.Views"
     Shell.FlyoutBehavior="Flyout"
     Title="DontLeMeExpire">
+    <!-- Kopfzeile-->
+    <Shell.FlyoutHeader>
+        <Border
+            Margin="0"
+            Padding="24"
+            BackgroundColor="#3d6dcc"
+            StrokeThickness="0">
+            <VerticalStackLayout Margin="10">
+                <Label
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                    Text="Don't let me expire"
+                    TextColor="White" />
+            </VerticalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
 
     <ShellContent
         Title="Home"

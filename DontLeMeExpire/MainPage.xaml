@@ -5,7 +5,7 @@
     xmlns:viewModels="clr-namespace:DontLeMeExpire.ViewModels" 
     xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-
+    xmlns:controls="clr-namespace:DontLeMeExpire.Controls"
     Padding="16"
     x:Class="DontLeMeExpire.MainPage"
     x:DataType="viewModels:MainViewModel">
@@ -19,6 +19,44 @@
             RowDefinitions="100,100,auto,*,48" 
             RowSpacing="10">
 
+            <controls:DashboardTile
+                Grid.Row="0"
+                Grid.Column="0"
+                Count="{Binding AnzahlProdukte}"
+                BorderColor="LightGray"
+                Icon="dotnet_bot.png" />
+
+            <controls:DashboardTile
+                Grid.Row="0"
+                Grid.Column="1"
+                Count="{Binding AnzahlBaldAbgelaufenenProdukten}"
+                CountColor="Green"
+                BorderColor="Green"
+                Icon="dotnet_bot.png"
+                Text="Läuft bald ab" />
+
+            <controls:DashboardTile
+                Grid.Row="1"
+                Grid.Column="0"
+                Count="{Binding AnzahlHeuteAbgelaufenenProdukten}"
+                CountColor="Orange"
+                BorderColor="Orange"
+                Icon="dotnet_bot.png"
+                Text="Läuft heute ab !" />
+
+            <controls:DashboardTile
+                Grid.Row="1"
+                Grid.Column="1"
+                Count="{Binding AnzahlAbgelaufenenProdukten}"
+                CountColor="Red"
+                BorderColor="Red"
+                Icon="dotnet_bot.png"
+                Text="Abgelaufen !" />
+
+
+
+            <!--#region Kacheln -->
+            <!--
             <Border
                 Grid.Row="0"
                 Grid.Column="0"
@@ -50,21 +88,20 @@
 
                 </Grid>
             </Border>
-
             <Border 
                 Grid.Row="0" 
                 Grid.Column="1"
                 BackgroundColor="White" 
                 Stroke="Green" 
                 StrokeShape="RoundRectangle 8">
-                
-                
+
+
                 <Grid 
                     Padding="8" 
                     ColumnDefinitions="*,*" 
                     HeightRequest="98" 
                     RowDefinitions="auto,*">
-                    
+
                     <Image
                         HeightRequest="40"
                         HorizontalOptions="Start"
@@ -86,7 +123,7 @@
                         VerticalOptions="End" />
 
                 </Grid>
-                
+
             </Border>
             <Border 
                 Grid.Row="1" 
@@ -122,7 +159,6 @@
 
                 </Grid>
             </Border>
-
             <Border 
                 Grid.Column="1" 
                 Grid.Row="1" 
@@ -155,10 +191,13 @@
                         VerticalOptions="End" />
 
                 </Grid>
-                
+
             </Border>
-            <!---->
+                -->
+            <!--#endregion-->
             
+            
+
             <Label
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
