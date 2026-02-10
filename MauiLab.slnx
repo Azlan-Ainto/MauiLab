@@ -1,4 +1,7 @@
 <Solution>
+  <Project Path="DatakopplungListen/DatakopplungListen.csproj" Id="5d42f1f8-b4bf-441e-8c57-5c290eddd504">
+    <Deploy Solution="Debug|*" />
+  </Project>
   <Project Path="DontLeMeExpire/DontLeMeExpire.csproj" />
   <Project Path="MauiLab/MauiLab.csproj">
     <Deploy Solution="Debug|*" />
