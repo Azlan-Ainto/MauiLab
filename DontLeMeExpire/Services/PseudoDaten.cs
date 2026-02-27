@@ -7,9 +7,13 @@ namespace DontLeMeExpire.Services
 {
     public class PseudoDaten
     {
+        private readonly ProduktService _produktService;
+
+        private readonly List<Aufbewahrungsort> _aufbewahurngsorte = [];
         // Ersetze alle Vorkommen von "LagerID" durch "AufbewahrungsortId" in den Aufbewahrungsort-Objekten
+
         public static List<Aufbewahrungsort> Orte { get; } = [
-            
+
             new Aufbewahrungsort {
                 AufbewahrungsortId ="",
                 Lagername = GetTranslation("Freezer", "Gefrierschrank"),
@@ -270,6 +274,8 @@ namespace DontLeMeExpire.Services
         {
             return Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "de" ? german : english;
         }
-    
+
+
+       
     }
 }

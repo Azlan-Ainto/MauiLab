@@ -6,4 +6,7 @@
   <Project Path="MauiLab/MauiLab.csproj">
     <Deploy Solution="Debug|*" />
   </Project>
+  <Project Path="MyBasicCollectionView/MyBasicCollectionView.csproj" Id="3ced15e5-462d-4eb2-9a7c-b0fc1e261e64">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>
