@@ -11,34 +11,43 @@
     <Grid Padding="10" RowDefinitions="Auto,*" RowSpacing="10">
 
         <!-- Eingabebereich -->
-        <VerticalStackLayout Grid.Row="0" Spacing="10">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="5" Padding="15">
+
 
             <Label
                 Text="Peoples"
                 FontSize="20"
                 FontAttributes="Bold" />
 
-            <HorizontalStackLayout Spacing="10">
+                <Border Stroke="Orchid" BackgroundColor="White" Padding="10">
+                    
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+                    
+                <Grid RowDefinitions="*,*,*,auto" RowSpacing="10">
 
-                <Entry
-                    Placeholder="Name"
-                    Text="{Binding NewPersonName}"
-                    WidthRequest="150" />
-                <Entry
-                    Placeholder="Job"
-                    Text="{Binding NewJob}"
-                    WidthRequest="150" />
+                    <Entry      Grid.Row="0"
+                                Placeholder="Name"
+                                Text="{Binding NewPersonName}" />
 
-                <Entry
-                    Placeholder="Company"
-                    Text="{Binding NewPersonCompany}"
-                    WidthRequest="150" />
+                    <Entry      Grid.Row="1"
+                                Placeholder="Job"
+                                Text="{Binding NewJob}" />
 
-                <Button
-                    Text="Add"
-                    Command="{Binding AddPersonCommand}" />
+                    <Entry      Grid.Row="2"
+                                Placeholder="Company"
+                                Text="{Binding NewPersonCompany}" />
 
-            </HorizontalStackLayout>
+                    <Button     Grid.Row="3"
+                                Text="+"
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                Command="{Binding AddPersonCommand}" />
+                    </Grid>
+
+                 </Border>
 
         </VerticalStackLayout>
 
@@ -53,7 +62,7 @@
                     <VerticalStackLayout Padding="0,3">
 
                         <Border
-                            Stroke="LightGray"
+                            Stroke="White"
                             StrokeThickness="1"
                             Padding="6">
 

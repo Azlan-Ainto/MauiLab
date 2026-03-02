@@ -1,0 +1,109 @@
+
+
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:TaskSuite.ViewModels"
+    xmlns:models="clr-namespace:TaskSuite.Models"
+    x:Class="TaskSuite.DetailPage"
+    Title="Details bearbeiten">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Border Padding="10" StrokeShape="RoundRectangle 10">
+                <Entry Placeholder="Titel der Aufgabe" 
+                       Text="{Binding TodoItem.Title}" 
+                       FontSize="18" FontAttributes="Bold" />
+            </Border>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                
+                <VerticalStackLayout Grid.Column="0">
+                    
+                    <Label Text="Kategorie" FontAttributes="Bold" />
+                    
+                    <Picker ItemsSource="{Binding Categories}" 
+                            SelectedItem="{Binding TodoItem.Category}" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1">
+                    
+                    <Label Text="Marker-Farbe" FontAttributes="Bold" />
+                    
+                    <Picker x:Name="ColorPicker" SelectedItem="{Binding TodoItem.MarkerColor}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Transparent</x:String>
+                                <x:String>Red</x:String>
+                                <x:String>Orange</x:String>
+                                <x:String>Yellow</x:String>
+                                <x:String>Green</x:String>
+                                <x:String>Blue</x:String>
+                                <x:String>Purple</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </VerticalStackLayout>
+            </Grid>
+
+            <Label Text="Zeitraum" FontAttributes="Bold" Margin="0,10,0,0"/>
+            
+            <Border Padding="15" 
+                    StrokeShape="RoundRectangle 10" 
+                    BackgroundColor="{AppThemeBinding 
+                    Light=#FAFAFA, Dark=#2B2B2B}">
+                
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Start" FontSize="12" TextColor="Gray"/>
+                    <Grid ColumnDefinitions="*, *">
+                        <DatePicker Grid.Column="0" Date="{Binding TodoItem.StartDate}" />
+                        <TimePicker Grid.Column="1" Time="{Binding TodoItem.StartTime}" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="LightGray" Margin="0,5"/>
+
+                    <Label Text="Ende" FontSize="12" TextColor="Gray"/>
+                    <Grid ColumnDefinitions="*, *">
+                        <DatePicker Grid.Column="0" Date="{Binding TodoItem.EndDate}" />
+                        <TimePicker Grid.Column="1" Time="{Binding TodoItem.EndTime}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Status" FontAttributes="Bold" />
+            
+            <VerticalStackLayout Spacing="5">
+                <RadioButton 
+                    Content="Noch nicht angefangen" 
+                    IsChecked="{Binding TodoItem.Status, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=NichtAngefangen}" />
+                
+                <RadioButton 
+                    Content="In Bearbeitung" 
+                    IsChecked="{Binding TodoItem.Status, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=InBearbeitung}" />
+                
+                <RadioButton 
+                    Content="Erledigt"
+                    IsChecked="{Binding TodoItem.Status, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Erledigt}" />
+                
+            </VerticalStackLayout>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="20" Margin="0,20">
+                
+                <Button 
+                    Grid.Column="0" 
+                    Text="Abbrechen" 
+                    Command="{Binding CancelCommand}" 
+                    BackgroundColor="Gray" />
+                
+                <Button 
+                    Grid.Column="1" Text="Speichern" 
+                    Command="{Binding SaveCommand}" 
+                    BackgroundColor="DeepSkyBlue" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

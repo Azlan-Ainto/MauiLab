@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"             
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:TaskSuite.ViewModels"
+    xmlns:models="clr-namespace:TaskSuite.Models"
+    x:Class="TaskSuite.MainPage"
+    Title="Meine Aufgaben">
+
+    <Grid RowDefinitions="Auto, *">
+
+        <HorizontalStackLayout 
+            Grid.Row="0" 
+            Padding="10" 
+            Spacing="10" 
+            VerticalOptions="Center">
+            
+            <Label Text="Gruppieren nach:" 
+                   VerticalOptions="Center" />
+            
+            <Picker x:Name="GroupPicker" 
+                    WidthRequest="150" 
+                    SelectedIndexChanged="OnGroupChanged">
+                
+                <Picker.Items>
+                    <x:String>Tag</x:String>
+                    <x:String>Woche</x:String>
+                    <x:String>Monat</x:String>
+                    <x:String>Jahr</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+            </Picker>
+        </HorizontalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding GroupedItems}"
+                        IsGrouped="True">
+
+            <CollectionView.GroupHeaderTemplate>
+                
+                
+                <DataTemplate x:DataType="models:ToDoGroup">
+                    
+                    <Label Text="{Binding Name}" 
+                           FontAttributes="Bold" FontSize="18" 
+                           Padding="10" 
+                           BackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#333333}" />
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ToDoItem">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem 
+                                    Text="Löschen" 
+                                    BackgroundColor="Red"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}},
+                                                        Path=DeleteItemCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Border 
+                            Margin="10,5" 
+                            Padding="15" 
+                            StrokeThickness="2" 
+                            StrokeShape="RoundRectangle 10">
+                            
+                            <Border.Stroke>
+                                <SolidColorBrush Color="{Binding MarkerColor}" />
+                            </Border.Stroke>
+
+                            <Grid ColumnDefinitions="*, Auto">
+                                
+                                <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                    
+                                    <Label Text="{Binding Title}" 
+                                           FontSize="18" 
+                                           FontAttributes="Bold" />
+                                    
+                                    <Label Text="{Binding Category}" 
+                                           FontSize="12" 
+                                           TextColor="Gray" />
+                                    
+                                    <Label Text="{Binding StartDate, StringFormat='{0:dd.MM.yyyy}'}" 
+                                           FontSize="12" />
+                                    
+                                </VerticalStackLayout>
+
+                                <Label Grid.Column="1" 
+                                       Text="{Binding Status}" 
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="End" />
+                            </Grid>
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEditItemTapped" CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="1" 
+                Text="+" 
+                FontSize="30" 
+                HeightRequest="60" 
+                WidthRequest="60" 
+                CornerRadius="30"
+                HorizontalOptions="End" 
+                VerticalOptions="End" 
+                Margin="20"
+                Clicked="OnAddClicked" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MyProfilis.DetailViewPage"
+    Title="Detailansicht">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Entry Text="{Binding Person.Vorname}" Placeholder="Vorname"/>
+            <Entry Text="{Binding Person.Nachname}" Placeholder="Nachname"/>
+            <Entry Text="{Binding Person.EMail}" Placeholder="E-Mail"/>
+            <Entry Text="{Binding Person.Telefon}" Placeholder="Telefon"/>
+            <Entry Text="{Binding Person.Stadt}" Placeholder="Stadt"/>
+            <Entry Text="{Binding Person.Land}" Placeholder="Land"/>
+            <Entry Text="{Binding Person.Postleitzahl}" Placeholder="PLZ"/>
+            <Entry Text="{Binding Person.Straße}" Placeholder="Straße"/>
+            <Entry Text="{Binding Person.Hausnummer}" Placeholder="Hausnummer"/>
+
+            <DatePicker Date="{Binding Person.Geburtsdatum}"/>
+
+            <HorizontalStackLayout Spacing="15">
+
+                <Button Text="Speichern"
+                        Command="{Binding SaveCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"/>
+
+                <Button Text="Löschen"
+                        Command="{Binding DeleteCommand}"
+                        BackgroundColor="Red"
+                        TextColor="White"/>
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

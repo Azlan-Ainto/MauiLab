@@ -9,4 +9,11 @@
   <Project Path="MyBasicCollectionView/MyBasicCollectionView.csproj" Id="3ced15e5-462d-4eb2-9a7c-b0fc1e261e64">
     <Deploy Solution="Debug|*" />
   </Project>
+  <Project Path="MyProfilis/MyProfilis.csproj" />
+  <Project Path="PeopleBase/PeopleBase.csproj" Id="b066f9db-db3a-4447-affb-92e4a6708d44">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="TaskSuite/TaskSuite.csproj" Id="a032e698-be80-496e-85e1-71f506477b47">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>

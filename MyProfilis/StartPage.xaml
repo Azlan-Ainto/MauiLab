@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MyProfilis.StartPage"
+    Title="Startseite">
+
+
+    <ScrollView>
+        <VerticalStackLayout Padding="40"
+                             Spacing="30"
+                             VerticalOptions="Center">
+
+            <!-- Titel -->
+            <Label Text="Willkommen"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#1E293B"/>
+
+            <Label Text="Personendaten verwalten und durchsuchen"
+                   FontSize="16"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#64748B"/>
+
+            <!-- Modernes Card-Layout -->
+            <Border Stroke="Transparent"
+                    StrokeShape="RoundRectangle 20"
+                    Background="White"
+                    Padding="30">
+
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Opacity="0.1"
+                            Offset="0,8"
+                            Radius="20"/>
+                </Border.Shadow>
+
+                <VerticalStackLayout Spacing="20">
+
+                    <Button Text="Neue Person erfassen"
+                            Clicked="OnMainPageClicked"
+                            BackgroundColor="#2563EB"
+                            TextColor="White"
+                            HeightRequest="55"
+                            CornerRadius="15"
+                            FontAttributes="Bold"/>
+
+                    <Button Text="Datensätze anzeigen / suchen"
+                            Clicked="OnSearchPageClicked"
+                            BackgroundColor="#10B981"
+                            TextColor="White"
+                            HeightRequest="55"
+                            CornerRadius="15"
+                            FontAttributes="Bold"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+
+    <!--<VerticalStackLayout Padding="30" Spacing="20">
+
+        <Button Text="Neue Person erfassen"
+                Clicked="OnMainPageClicked"/>
+
+        <Button Text="Datensätze anzeigen / suchen"
+                Clicked="OnSearchPageClicked"/>
+
+    </VerticalStackLayout>-->
+
+</ContentPage>

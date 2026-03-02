@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MyProfilis.ViewModel"
+    x:Class="MyProfilis.MainPage">
+
+
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Entry Placeholder="Vorname" Text="{Binding Vorname}" />
+            <Entry Placeholder="Nachname" Text="{Binding Nachname}" />
+            <DatePicker  Date="{Binding Geburtsdatum}" />
+            <Entry Placeholder="Telefon" Text="{Binding Telefon}" />
+            <Entry Placeholder="E-Mail" Text="{Binding EMail}" />
+            <Entry Placeholder="Land" Text="{Binding Land}" />
+            <Entry Placeholder="Stadt" Text="{Binding Stadt}" />
+            <Entry Placeholder="PLZ" Text="{Binding Postleitzahl}" />
+            <Entry Placeholder="Straße" Text="{Binding Straße}" />
+            <Entry Placeholder="Hausnummer" Text="{Binding Hausnummer}" />
+
+            <Button Text="Speichern"  Command="{Binding SaveCommand}" />
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
