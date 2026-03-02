@@ -1,4 +1,10 @@
 <Solution>
+  <Project Path="../../MyToDoNotes/Augenblick/Augenblick.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="../../MyToDoNotes/MyProfilis/MyProfilis.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
   <Project Path="DatakopplungListen/DatakopplungListen.csproj" Id="5d42f1f8-b4bf-441e-8c57-5c290eddd504">
     <Deploy Solution="Debug|*" />
   </Project>
